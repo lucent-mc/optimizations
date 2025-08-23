@@ -17,7 +17,7 @@ gamma:1.0
 graphicsMode:1
 guiScale:0
 maxFps:240
-mipmapLevels:4
+mipmapLevels:2
 narrator:0
 particles:1
 reducedDebugInfo:false
