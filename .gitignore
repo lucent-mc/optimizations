@@ -21,6 +21,11 @@ modrinth.index.json
 # modrinth.index.json.
 !index.json
 
+# The config folder isn't actually used in the final mod pack, but it's
+# useful to include with VCS, to keep track of in-game changes.
+!config
+!config/**/*
+
 !overrides
 !overrides/**/*
 
