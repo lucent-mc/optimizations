@@ -25,9 +25,11 @@ modrinth.index.json
 # useful to include with VCS, to keep track of in-game changes.
 !config
 !config/**/*
+config/sodium-fingerprint.json
 
 !overrides
 !overrides/**/*
+overrides/config/sodium-fingerprint.json
 
 !server-overrides
 !server-overrides/**/*
