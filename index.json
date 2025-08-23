@@ -1,0 +1,12 @@
+{
+    "formatVersion": 1,
+	"game": "minecraft",
+	"versionId": "1.21.1",
+	"name": "Lucent Optimizations",
+	"summary": "Your game has never felt this fast before. — Lucent Optimizations for Minecraft 1.21.1",
+	"files": [],
+	"dependencies": {
+		"minecraft": "1.21.1",
+		"fabric-loader": "0.17.2"
+	}
+}
