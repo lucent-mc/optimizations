@@ -1,0 +1,14 @@
+enableVsync:false
+gamma:1.0
+guiScale:3
+maxFps:260
+soundCategory_master:1.0
+soundCategory_music:0.5
+soundCategory_record:0.35
+soundCategory_weather:0.25
+soundCategory_block:0.7
+soundCategory_hostile:0.75
+soundCategory_neutral:0.5
+soundCategory_player:1.0
+soundCategory_ambient:0.6
+soundCategory_voice:1.0
