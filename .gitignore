@@ -27,9 +27,11 @@ modrinth.index.json
 !config/**/*
 config/sodium-fingerprint.json
 
+!configureddefaults
+!configureddefaults/**/*
+
 !overrides
 !overrides/**/*
-overrides/config/sodium-fingerprint.json
 
 !server-overrides
 !server-overrides/**/*
