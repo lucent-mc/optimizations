@@ -9,6 +9,8 @@
 # not relevant to the mod pack.
 instance.json
 
+!options.txt
+
 # In stead, we would include the contents of an exported *.mrpack. 
 # Namely, the modrinth.index.json.
 # However, because the contents of this file are auto-generated 
