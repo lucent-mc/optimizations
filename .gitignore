@@ -13,15 +13,7 @@ instance.json
 
 # In stead, we would include the contents of an exported *.mrpack. 
 # Namely, the modrinth.index.json.
-# However, because the contents of this file are auto-generated 
-# during export, we do not include it in the repository. In stead,
-# we use the Releases tab to upload the mod pack with these details.
-modrinth.index.json
-
-# To keep track of the mod pack's metadata, however, we should include 
-# an index.json based on some of the contents of instance.json or 
-# modrinth.index.json.
-!index.json
+!modrinth.index.json
 
 # The config folder isn't actually used in the final mod pack, but it's
 # useful to include with VCS, to keep track of in-game changes.
