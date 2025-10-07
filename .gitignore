@@ -32,3 +32,7 @@ config/sodium-fingerprint.json
 
 !client-overrides
 !client-overrides/**/*
+
+config/spark/activity.json
+config/spark/heap*
+config/spark/**/about.txt
