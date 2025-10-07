@@ -22,8 +22,8 @@ narrator:0
 particles:0
 reducedDebugInfo:false
 renderClouds:"true"
-renderDistance:12
-simulationDistance:12
+renderDistance:32
+simulationDistance:32
 screenEffectScale:1.0
 soundDevice:""
 autoJump:false
@@ -44,7 +44,7 @@ toggleSprint:false
 darkMojangStudiosBackground:false
 hideLightningFlashes:false
 hideSplashTexts:false
-mouseSensitivity:0.5
+mouseSensitivity:0.1894586267605633
 damageTiltStrength:1.0
 highContrast:false
 narratorHotkey:true
@@ -121,6 +121,7 @@ key_key.hotbar.6:key.keyboard.6
 key_key.hotbar.7:key.keyboard.7
 key_key.hotbar.8:key.keyboard.8
 key_key.hotbar.9:key.keyboard.9
+key_key.modernfix.config:key.keyboard.unknown
 key_key.entityculling.toggle:key.keyboard.unknown
 soundCategory_master:1.0
 soundCategory_music:0.0
