@@ -36,3 +36,6 @@ config/sodium-fingerprint.json
 config/spark/activity.json
 config/spark/heap*
 config/spark/**/about.txt
+
+!.vscode
+!.vscode/**/*
