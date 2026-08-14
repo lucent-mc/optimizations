@@ -1,0 +1,19 @@
+{
+  "name": "lucent-optimizations",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@11.21.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "lay": "lay",
+    "check": "lay --no-interactive check",
+    "build": "lay --no-interactive materialize && lay --no-interactive build",
+    "updates": "lay --no-interactive --json update --check",
+    "release:build": "lay --no-interactive materialize && lay --no-interactive build --target github"
+  },
+  "devDependencies": {
+    "@lucent-mc/inlay": "0.2.8"
+  }
+}

@@ -1,0 +1,2 @@
+minimumReleaseAgeExclude:
+  - '@lucent-mc/inlay@0.2.8'
