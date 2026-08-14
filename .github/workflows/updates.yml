@@ -1,0 +1,52 @@
+name: Check Layer updates
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  updates:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Layer
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install tooling
+        run: pnpm install --frozen-lockfile
+
+      - name: Discover viable updates
+        shell: bash
+        run: pnpm --silent updates > updates.json
+
+      - name: Write update summary
+        shell: bash
+        run: |
+          count="$(jq '.data | length' updates.json)"
+          {
+            echo "## Layer update candidates"
+            echo
+            if [[ "$count" == "0" ]]; then
+              echo "No viable updates were found."
+            else
+              echo "Found **${count}** viable update(s):"
+              echo
+              jq -r '.data[] | "- **\(.projectName)**: `\(.installedVersion)` → `\(.candidateVersion)` (`\(.path)`)"' updates.json
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload update report
+        uses: actions/upload-artifact@v4
+        with:
+          name: layer-update-candidates
+          path: updates.json

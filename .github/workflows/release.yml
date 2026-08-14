@@ -1,0 +1,72 @@
+name: Release Layer
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Layer
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - name: Install tooling
+        run: pnpm install --frozen-lockfile
+
+      - name: Validate Layer
+        run: pnpm check
+
+      - name: Build release artifact
+        run: pnpm release:build
+
+      - name: Read release metadata
+        id: release
+        shell: bash
+        run: |
+          version="$(node -p "require('./inlay.index.json').versionId")"
+          artifact="$(find dist -maxdepth 1 -type f -name '*.mrpack' -print -quit)"
+          if [[ -z "$artifact" ]]; then
+            echo "No mrpack was produced." >&2
+            exit 1
+          fi
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "artifact=$artifact" >> "$GITHUB_OUTPUT"
+
+      - name: Refuse an existing release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          if gh release view "v${VERSION}" >/dev/null 2>&1; then
+            echo "Release v${VERSION} already exists." >&2
+            exit 1
+          fi
+
+      - name: Create draft GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ steps.release.outputs.version }}
+          ARTIFACT: ${{ steps.release.outputs.artifact }}
+        run: |
+          gh release create "v${VERSION}" \
+            "$ARTIFACT" \
+            "${ARTIFACT}.sha256" \
+            "${ARTIFACT}.sha512" \
+            "${ARTIFACT}.build.json" \
+            --draft \
+            --generate-notes \
+            --title "Lucent Optimizations ${VERSION}"
