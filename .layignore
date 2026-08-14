@@ -40,3 +40,12 @@
 /webcache/
 /options.txt
 /data/fabric_default_resource_packs.json
+/scripts/Build-Mrpack.ps1
+/scripts/Check-ModrinthUpdates.mjs
+/scripts/Check-NeoForgeCompatibility.mjs
+/scripts/Create-ModUpdateIssues.mjs
+/scripts/lib/modrinth-selector.ts
+/scripts/select-modrinth-manifest.ts
+/scripts/Summarize-ProbeResults.mjs
+/scripts/Sync-ModrinthIndex.ps1
+/scripts/Validate-ModrinthManifest.mjs
